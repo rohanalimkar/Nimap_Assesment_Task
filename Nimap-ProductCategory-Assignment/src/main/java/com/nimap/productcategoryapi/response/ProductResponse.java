@@ -13,7 +13,6 @@ public class ProductResponse {
     private Long id;
     private String name;
     private Double price;
-    private Category category; // Add category here
+    private Category category; //Here Add category.
 
-    // Constructor, Getters, and Setters
 }
