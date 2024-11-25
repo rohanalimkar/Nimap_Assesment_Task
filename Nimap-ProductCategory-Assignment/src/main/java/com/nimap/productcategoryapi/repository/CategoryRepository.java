@@ -10,6 +10,6 @@ import com.nimap.productcategoryapi.model.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long>{
 
-	//this is for the handle server side pagination
+	//Handle server side pagination
 	Page<Category> findAll(Pageable pageable);
 }
