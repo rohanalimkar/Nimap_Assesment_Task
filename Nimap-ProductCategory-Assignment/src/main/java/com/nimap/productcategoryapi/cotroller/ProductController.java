@@ -24,19 +24,12 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	// Get all products with pagination
+	// Geting all products with pagination
 	@GetMapping
 	public ResponseEntity<Page<Product>> getAllProducts(Pageable pageable) {
 		Page<Product> products = productService.getAllProducts(pageable);
 		return ResponseEntity.ok(products);
 	}
-
-	/*// Get product by ID including associated category
-	@GetMapping("/{id}")
-	public ResponseEntity<Product> getProductById(@PathVariable Long id) {
-		Product product = productService.getProductById(id);
-		return ResponseEntity.ok(product);
-	}*/
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
@@ -50,16 +43,6 @@ public class ProductController {
 	    return ResponseEntity.ok(response);
 	}
 
-	
-	 
-
-	/*// Create new product
-	@PostMapping
-	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-		Product createdProduct = productService.createProduct(product);
-		return ResponseEntity.ok(createdProduct);
-	}*/
-	
 	@PostMapping
 	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
 	    // Ensure category is set before saving
@@ -70,14 +53,14 @@ public class ProductController {
 	    return ResponseEntity.ok(createdProduct);
 	}
 
-	// Update product by ID
+	// product updated by id
 	@PutMapping("/{id}")
 	public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product productDetails) {
 		Product updatedProduct = productService.updateProduct(id, productDetails);
 		return ResponseEntity.ok(updatedProduct);
 	}
 
-	// Delete product by ID
+	//  product delete by id
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
 		productService.deleteProduct(id);
