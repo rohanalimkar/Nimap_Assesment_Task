@@ -26,12 +26,8 @@ public class Product {
 	@Column(nullable = false)
 	private Double price;
 	
-//	@ManyToOne(fetch = FetchType.EAGER)
-//	@JoinColumn(name = "category_id")
-//	private Category category;
-	
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
-    @JsonBackReference // This indicates the "child" side of the relationship
+    @JsonBackReference // child side of the relationship
     private Category category;
 }
